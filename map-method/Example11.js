@@ -1,14 +1,17 @@
 const stringarr = ["abc", "bca", "dbe"]; //out put [021]
 
-// const stringIndex = stringarr.map((items, index) => {
-//   console.log(items.indexOf("b"));
-//   console.log(index);
-//   if (items.indexOf("b") === 1) {
-//   }
-// });
 
-const targetChar = "b";
-
-const stringIndex = stringarr.map((items) => {
-  console.log(items.indexOf(targetChar));
-});
+function getindex(stringarr) {
+  let n = stringarr.length;
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      let str1 = stringarr[i];
+      let str2 = stringarr[j];
+      for (let k = 0; k < str1.length; k++) {
+        if (str1[k] === str2[k]) return [i, j, k];
+      }
+    }
+  }
+  return [];
+}
+console.log(getindex(stringarr));
